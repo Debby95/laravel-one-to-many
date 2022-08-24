@@ -19,7 +19,9 @@
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td><a href="{{route('admin.users.edit', $user->id)}}"><button>Edit</button></a></td>
+                            <td>
+                                @if($user->role === 'admin')
+                                <a href="{{route('admin.users.edit', $user->id)}}"><button>Edit</button></a></td>
                             {{-- <td><a href="{{route('admin.posts.show', ['post' => $post->slug])}}"><button>Show</button></a></td>
                             
                             @csrf

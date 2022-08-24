@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserDetail;
 use Illuminate\Http\Request;
 
 
@@ -25,6 +26,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        dd($data);
+        $user = User::findOrFail($id);
+
+        if(!$user->details){
+            $user->details = new UserDetail();
+            $user->details->user_id = $user->id;
+            $user->details->fill($data);
+            $user->details->save();
+        } else {
+            $user->details->update($data);
+        }
+
+        $user->update($data);
+        return redirect()->route("admin.users.edit", $user->id);
     }
 }
