@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 //Route::get('/', 'HomeController@index')->name('home');
@@ -29,7 +31,9 @@ Route::middleware("auth")
 ->name("admin.")
 ->prefix("admin")
 ->group(function() {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', "HomeController@index")->name("home");
     Route::get("/users", "UserController@index")->name("users.index");
+    Route::get("/users/{user}", "UserController@update")->name("users.update");
+    Route::get("/users/{user}/edit", "UserController@edit")->name("users.edit");
     Route::resource("posts", "PostController");
 });

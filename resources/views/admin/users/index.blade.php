@@ -19,8 +19,9 @@
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
+                            <td><a href="{{route('admin.users.edit', $user->id)}}"><button>Edit</button></a></td>
                             {{-- <td><a href="{{route('admin.posts.show', ['post' => $post->slug])}}"><button>Show</button></a></td>
-                            <td><a href="{{route('admin.posts.edit', ['post' => $post->slug])}}"><button>Edit</button></a></td>
+                            
                             @csrf
                             @method('DELETE')
                             <td><a href="{{route('admin.posts.destroy', ['post' => $post->slug])}}"><button>Delete</button></a></td>
