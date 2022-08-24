@@ -11,6 +11,7 @@
                     <th>Title</th>
                     <th>Content</th>
                     <th>Slug</th>
+                    <th>Author</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                             <td>{{$post->title}}</td>
                             <td>{{$post->content}}</td>
                             <td>{{$post->slug}}</td>
+                            <td>{{$post->user->name}}</td>
                             <td><a href="{{route('admin.posts.show', ['post' => $post->slug])}}"><button>Show</button></a></td>
                             <td><a href="{{route('admin.posts.edit', ['post' => $post->slug])}}"><button>Edit</button></a></td>
                             @csrf
