@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label>Content</label>
-                <input name="content" type="text" class="form-control mb-3 h-content">
+                <input name="content" type="text" class="form-control mb-3">
             </div>
             <button type="submit">Submit</button>
             </form>
@@ -26,8 +26,4 @@
 </div>
 @endsection
 
-<style>
-    .h-content {
-        height: 200px;
-    }
-</style>
+

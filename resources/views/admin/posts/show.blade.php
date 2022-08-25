@@ -17,6 +17,11 @@
                 <dd>{{$post->slug}}</dd>
                 <dt>Author</dt>
                 <dd>{{$post->user->name}}</dd>
+                <dt>Category</dt>
+                <dd>
+                    <a href="{{route('admin.categories.posts', $post->category_id)}}"></a>
+                    {{$post->category ? $post->category->name : ''}}
+                </dd>
             </dl>
             <a href="{{route('admin.posts.edit', $post->slug) }}">Edit</a>
             <a href="{{route('admin.posts.index', $post->slug) }}">Posts</a>

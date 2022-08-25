@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -58,7 +59,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("admin.posts.create");
+        $categories = Category::all();
+        return view("admin.posts.create", compact("categories"));
     }
 
     /**
@@ -72,6 +74,7 @@ class PostController extends Controller
         $validatedData = $request->validate([
             "title" => "required|min:7",
             "content" => "required|min:10",
+            "category_id" => "nullable"
         ]);
 
         $post = new Post();

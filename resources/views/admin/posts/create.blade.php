@@ -13,7 +13,16 @@
             </div>
             <div class="form-group">
                 <label>Content</label>
-                <input name="content" type="text" class="form-control mb-3 h-content">
+                <input name="content" type="text" class="form-control mb-3">
+            </div>
+            <div class="form-group">
+                <label>Cateogory</label>
+                <select name="category_id" type="text" class="form-control mb-3">
+                    <option value=""></option>
+                    @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit">Submit</button>
             </form>

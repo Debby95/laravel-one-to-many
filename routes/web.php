@@ -35,5 +35,6 @@ Route::middleware("auth")
     Route::get("/users", "UserController@index")->name("users.index");
     Route::get("/users/{user}", "UserController@update")->name("users.update");
     Route::get("/users/{user}/edit", "UserController@edit")->name("users.edit");
+    Route::get("/categories/{category}/posts", "CategoryController@posts")->name("categories.posts");
     Route::resource("posts", "PostController");
 });
